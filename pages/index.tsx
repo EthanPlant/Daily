@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import Head from 'next/head'
-import { signIn } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 export default function Home() {
+  const { data: sessionData } = useSession()
   return (
     <>
       <Head>
@@ -23,9 +24,9 @@ export default function Home() {
         <div className="mt-6 flex flex-col justify-center items-center">
           <button
             className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-4 px-16 rounded"
-            onClick={() => signIn()}
+            onClick={sessionData ? () => void signOut() : () => void signIn()}
           >
-            Get Started
+            {sessionData ? 'Sign Out' : 'Get Started'}
           </button>
           <a
             className="text-sm font-semibold underline"
