@@ -8,29 +8,26 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Todo</title>
-        <meta
-          name="description"
-          content="A free and open source todo list app"
-        />
+        <title>Daily</title>
+        <meta name="description" content="A fast and flexible day planner" />
       </Head>
       <main className="flex flex-col items-center justify-center h-screen w-screen">
         <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold font-inter">
-          Todo
+          Daily
         </h1>
         <h2 className="text-lg lg:text-xl font-semibold font-inter">
-          A free and open source todo list app.
+          All your plans, anywhere.
         </h2>
         <div className="mt-6 flex flex-col justify-center items-center">
           <button
-            className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-4 px-16 rounded"
+            className="bg-blue-200 hover:bg-blue-400 font-bold py-4 px-16 rounded"
             onClick={sessionData ? () => void signOut() : () => void signIn()}
           >
             {sessionData ? 'Sign Out' : 'Get Started'}
           </button>
           <a
             className="text-sm font-semibold underline"
-            href="https://github.com/EthanPlant/Todo"
+            href="https://github.com/EthanPlant/Daily"
           >
             View on GitHub <FontAwesomeIcon icon={faGithub} />
           </a>
@@ -38,7 +35,7 @@ export default function Home() {
         <footer className="py-8 bg-slate-700 text-white flex flex-col items-center w-full absolute bottom-0">
           <a
             className="text-sm font-semibold underline"
-            href="https://github.com/EthanPlant/Todo"
+            href="https://github.com/EthanPlant/Daily"
           >
             View on GitHub <FontAwesomeIcon icon={faGithub} />
           </a>
