@@ -4,6 +4,7 @@ import {
   faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import ListContainer from './ListContainer'
 
@@ -20,7 +21,10 @@ export default function LeftBar() {
           <FontAwesomeIcon icon={faGear} className="mr-1" />
           Settings
         </button>
-        <button className="bg-blue-200 hover:bg-blue-400 py-2 px-4 rounded transition-colors">
+        <button
+          className="bg-blue-200 hover:bg-blue-400 py-2 px-4 rounded transition-colors"
+          onClick={() => void signOut()}
+        >
           <FontAwesomeIcon
             icon={faRightFromBracket}
             rotation={180}

@@ -1,6 +1,7 @@
 import { signIn, useSession } from 'next-auth/react'
 import Head from 'next/head'
 import LeftBar from '../components/LeftBar'
+import RightBar from '../components/RightBar'
 
 export default function App() {
   const { data: sessionData } = useSession()
@@ -9,9 +10,13 @@ export default function App() {
       <Head>
         <title>App | Daily</title>
       </Head>
-      <div className="flex h-screen w-screen">
+      <div>
         {sessionData ? (
-          <LeftBar />
+          <div className="flex justify-between h-screen w-screen">
+            <LeftBar />
+            <main className="flex-1"></main>
+            <RightBar />
+          </div>
         ) : (
           <main className="flex flex-col items-center">
             <h1 className="font-inter text-3xl font-bold text-center mb-3">
