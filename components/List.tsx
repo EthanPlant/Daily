@@ -11,7 +11,7 @@ export default function List({ initialActive, initialName }: ListProps) {
   const [name, setName] = useState(initialName)
   const [active, setActive] = useState(initialActive)
   return (
-    <button
+    <div
       className={`flex items-center w-44 xl:w-4/5 h-12 my-0 mx-auto leading-10 pl-2 rounded-lg cursor-pointer transition-colors ${
         active && 'bg-blue-300'
       }`}
@@ -24,8 +24,9 @@ export default function List({ initialActive, initialName }: ListProps) {
         }`}
         value={name}
         onChange={(e) => setName(e.target.value)}
+        aria-label="List Name"
       />
       {active && <FontAwesomeIcon icon={faXmark} />}
-    </button>
+    </div>
   )
 }

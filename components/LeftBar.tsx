@@ -10,7 +10,10 @@ import ListContainer from './ListContainer'
 
 export default function LeftBar() {
   return (
-    <aside className="flex flex-col w-1/5 xl:w-56 h-screen bg-gray-200">
+    <aside
+      className="flex flex-col w-1/5 xl:w-56 h-screen bg-gray-200"
+      aria-label="Left Bar"
+    >
       <h1 className="font-inter font-bold text-2xl mt-4 mb-12 ml-3">
         <FontAwesomeIcon className="mr-2" icon={faRectangleList} />
         <Link href="/">Daily</Link>

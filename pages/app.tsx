@@ -9,6 +9,7 @@ export default function App() {
     <>
       <Head>
         <title>App | Daily</title>
+        <meta name="description" content="Daily App" />
       </Head>
       <div>
         {sessionData ? (
