@@ -24,6 +24,7 @@ export default function List({ initialActive, initialName }: ListProps) {
         }`}
         value={name}
         onChange={(e) => setName(e.target.value)}
+        aria-label="List Name"
       />
       {active && <FontAwesomeIcon icon={faXmark} />}
     </div>
