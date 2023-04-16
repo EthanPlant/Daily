@@ -1,12 +1,13 @@
-import Greeting from '@/components/Greeting'
-import { signIn, useSession } from 'next-auth/react'
-import Head from 'next/head'
-import LeftBar from '@/components/LeftBar'
-import RightBar from '@/components/RightBar'
-import TaskList from '@/components/TaskList'
+import Head from 'next/head';
+import { signIn, useSession } from 'next-auth/react';
+
+import Greeting from '@/components/Greeting';
+import LeftBar from '@/components/LeftBar';
+import RightBar from '@/components/RightBar';
+import TaskList from '@/components/TaskList';
 
 export default function App() {
-  const { data: sessionData } = useSession()
+  const { data: sessionData } = useSession();
 
   return (
     <>
@@ -16,7 +17,7 @@ export default function App() {
       </Head>
       <div>
         {sessionData ? (
-          <div className="flex justify-between h-screen w-screen">
+          <div className="flex h-screen w-screen justify-between">
             <LeftBar />
             <main className="flex-1">
               <Greeting />
@@ -26,11 +27,11 @@ export default function App() {
           </div>
         ) : (
           <main className="flex flex-col items-center">
-            <h1 className="font-inter text-3xl font-bold text-center mb-3">
+            <h1 className="mb-3 text-center font-inter text-3xl font-bold">
               You must be signed in!
             </h1>
             <button
-              className="bg-blue-300 hover:bg-blue-400 font-bold py-4 px-16 rounded"
+              className="rounded bg-blue-300 px-16 py-4 font-bold hover:bg-blue-400"
               onClick={() => void signIn()}
             >
               Sign In
@@ -39,5 +40,5 @@ export default function App() {
         )}
       </div>
     </>
-  )
+  );
 }

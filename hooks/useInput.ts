@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const useInput = (
   initialValue = ''
@@ -7,13 +7,13 @@ const useInput = (
   React.Dispatch<React.SetStateAction<string>>,
   (event: React.ChangeEvent<HTMLInputElement>) => void
 ] => {
-  const [value, setValue] = useState(initialValue)
+  const [value, setValue] = useState(initialValue);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value)
-  }
+    setValue(event.target.value);
+  };
 
-  return [value, setValue, handleChange]
-}
+  return [value, setValue, handleChange];
+};
 
-export default useInput
+export default useInput;

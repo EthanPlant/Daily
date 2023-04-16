@@ -12,32 +12,30 @@ export default function Greeting() {
     'Oct',
     'Nov',
     'Dec',
-  ]
+  ];
 
-  const date = new Date()
-  const hour = date.getHours()
+  const date = new Date();
+  const hour = date.getHours();
 
-  let greeting = 'Good Evening'
+  let greeting = 'Good Evening';
 
   if (hour >= 6 && hour < 12) {
-    greeting = 'Good Morning'
+    greeting = 'Good Morning';
   } else if (hour >= 12 && hour < 17) {
-    greeting = 'Good Afternoon'
+    greeting = 'Good Afternoon';
   }
 
   return (
-    <div className="flex my-10 gap-4 items-center">
-      <div className="my-auto mx-3 text-2xl text-center font-bold">
+    <div className="my-10 flex items-center gap-4">
+      <div className="mx-3 my-auto text-center text-2xl font-bold">
         {monthNames[date.getMonth()]}
         <br />
         {date.getDate()}
       </div>
       <div>
         <div className="text-3xl font-bold">{greeting}</div>
-        <div className="text-3xl font-bold text-gray-500">
-          What&#39;s your plan for today?
-        </div>
+        <div className="text-3xl font-bold text-gray-500">What&#39;s your plan for today?</div>
       </div>
     </div>
-  )
+  );
 }

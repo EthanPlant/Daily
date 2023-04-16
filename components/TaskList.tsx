@@ -1,9 +1,9 @@
-import TaskCreator from './TaskCreator'
+import TaskCreator from './TaskCreator';
 
 export default function TaskList() {
   return (
-    <div className="flex flex-col items-stretch gap-4 mx-9">
+    <div className="mx-9 flex flex-col items-stretch gap-4">
       <TaskCreator />
     </div>
-  )
+  );
 }

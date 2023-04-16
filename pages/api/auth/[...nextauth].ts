@@ -1,17 +1,18 @@
-import NextAuth, { NextAuthOptions } from 'next-auth'
-import GitHubProvider from 'next-auth/providers/github'
-import GoogleProvider from 'next-auth/providers/google'
-import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import prisma from '../../../lib/prisma'
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import NextAuth, { NextAuthOptions } from 'next-auth';
+import GitHubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
+
+import prisma from '../../../lib/prisma';
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
     // Include user id in session
     session({ session, user }) {
       if (session.user) {
-        session.user.id = user.id
+        session.user.id = user.id;
       }
-      return session
+      return session;
     },
   },
   adapter: PrismaAdapter(prisma),
@@ -28,6 +29,6 @@ export const authOptions: NextAuthOptions = {
   theme: {
     colorScheme: 'light',
   },
-}
+};
 
-export default NextAuth(authOptions)
+export default NextAuth(authOptions);
