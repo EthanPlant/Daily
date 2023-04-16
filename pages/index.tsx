@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
 import { signIn, signOut, useSession } from 'next-auth/react';
 
-import useAppRedirect from '@/hooks/useAppRedirect';
+import useRedirect from '@/hooks/useRedirect';
 
 export default function Home() {
   const { data: sessionData } = useSession();
 
-  useAppRedirect();
+  useRedirect('/app', !!sessionData);
 
   return (
     <>
