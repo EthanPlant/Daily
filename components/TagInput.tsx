@@ -1,34 +1,30 @@
+import useInput from '@/hooks/useInput'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 
 export default function TagInput() {
-  const [input, setInput] = useState('')
+  const [tag, setTag, onTagChange] = useInput('')
   const [tags, setTags] = useState<string[]>([])
   const [isKeyReleased, setIsKeyReleased] = useState(false)
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    setInput(value)
-  }
-
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { key } = e
-    const trimmedInput = input.trim()
+    const trimmedInput = tag.trim()
 
     if (key === ',' && trimmedInput.length && !tags.includes(trimmedInput)) {
       e.preventDefault()
       setTags((prevState) => [...prevState, trimmedInput])
-      setInput('')
+      setTag('')
     }
 
-    if (key === 'Backspace' && !input.length && tags.length && isKeyReleased) {
+    if (key === 'Backspace' && !tag.length && tags.length && isKeyReleased) {
       e.preventDefault()
       const tagsCopy = [...tags]
       const poppedTag = tagsCopy.pop() as string
 
       setTags(tagsCopy)
-      setInput(poppedTag)
+      setTag(poppedTag)
     }
 
     setIsKeyReleased(false)
@@ -61,10 +57,10 @@ export default function TagInput() {
       <input
         className="w-full min-w-[50%] border-none rounded-s p-3 pl-3 bg-gray-200"
         placeholder="Add Tag"
-        value={input}
+        value={tag}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
-        onChange={onChange}
+        onChange={onTagChange}
       />
     </div>
   )

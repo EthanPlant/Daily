@@ -2,16 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import Head from 'next/head'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import useLoginRedirect from '@/hooks/useLoginRedirect'
 
 export default function Home() {
-  const router = useRouter()
   const { data: sessionData } = useSession()
 
-  useEffect(() => {
-    if (sessionData) router.push('/app')
-  }, [router, sessionData])
+  useLoginRedirect()
 
   return (
     <>
