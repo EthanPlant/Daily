@@ -8,7 +8,7 @@ const useRedirect = (path: string, redirectCondition = true) => {
     if (redirectCondition) {
       router.push(path);
     }
-  }, [path, redirectCondition]);
+  }, [path, redirectCondition, router]);
 };
 
 export default useRedirect;

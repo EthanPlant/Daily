@@ -1,3 +1,5 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRef, useState } from 'react';
 
 import useOnClickOutside from '@/hooks/useOnClickOutside';
@@ -16,7 +18,7 @@ export default function TaskCreator() {
     <div
       className={`flex flex-col gap-5 overflow-hidden rounded-lg bg-gray-200 p-3 leading-10 ${
         expanded ? 'max-h-80' : 'max-h-12'
-      } transition-[max-height] duration-500 ease-in-out`}
+      } transition-max-height duration-500 ease-in-out`}
       onClick={() => setExpanded(true)}
       ref={taskCreatorRef}
     >
@@ -34,27 +36,29 @@ export default function TaskCreator() {
         <span>
           <label>
             High
-            <input type="radio" name="priority" value="high" className="ml-2 accent-red-400" />
+            <input type="radio" name="priority" value={1} className="ml-1 accent-red-400" />
           </label>
         </span>
         <span>
           <label>
             Medium
-            <input type="radio" name="priority" value="medium" className="ml-1 accent-yellow-400" />
+            <input type="radio" name="priority" value={2} className="ml-1 accent-yellow-400" />
           </label>
         </span>
         <span>
           <label>
             Low
-            <input type="radio" name="priority" value="low" className="ml-1 accent-gray-400" />
+            <input type="radio" name="priority" value={3} className="ml-1 accent-gray-400" />
           </label>
         </span>
         <span></span>
       </div>
-      <label className="ml-1">
-        Tags
-        <TagInput />
-      </label>
+      <div>
+        <label className="ml-1">
+          Tags
+          <TagInput />
+        </label>
+      </div>
     </div>
   );
 }
