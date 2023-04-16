@@ -3,7 +3,7 @@ import { signIn, useSession } from 'next-auth/react'
 import Head from 'next/head'
 import LeftBar from '@/components/LeftBar'
 import RightBar from '@/components/RightBar'
-import TodoList from '@/components/TodoList'
+import TaskList from '@/components/TaskList'
 
 export default function App() {
   const { data: sessionData } = useSession()
@@ -20,7 +20,7 @@ export default function App() {
             <LeftBar />
             <main className="flex-1">
               <Greeting />
-              <TodoList />
+              <TaskList />
             </main>
             <RightBar />
           </div>

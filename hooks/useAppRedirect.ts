@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-const useLoginRedirect = () => {
+const useAppRedirect = () => {
   const { data: sessionData } = useSession()
   const router = useRouter()
 
@@ -13,4 +13,4 @@ const useLoginRedirect = () => {
   }, [router, sessionData])
 }
 
-export default useLoginRedirect
+export default useAppRedirect

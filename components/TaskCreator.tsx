@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import TagInput from './TagInput'
 
-export default function TodoCreator() {
+export default function TaskCreator() {
   const [expanded, setExpanded] = useState(false)
   return (
     <div
