@@ -8,10 +8,9 @@ export default function TaskCreator() {
   const [expanded, setExpanded] = useState(false);
 
   const taskCreatorRef = useRef<HTMLDivElement>(null);
-  const clickOutsideHandler = () => {
+  useOnClickOutside(taskCreatorRef, () => {
     setExpanded(false);
-  };
-  useOnClickOutside(taskCreatorRef, clickOutsideHandler);
+  });
 
   return (
     <div
