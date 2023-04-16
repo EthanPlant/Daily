@@ -1,16 +1,25 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+
+import useOnClickOutside from '@/hooks/useOnClickOutside';
 
 import TagInput from './TagInput';
 
 export default function TaskCreator() {
   const [expanded, setExpanded] = useState(false);
+
+  const taskCreatorRef = useRef<HTMLDivElement>(null);
+  const clickOutsideHandler = () => {
+    setExpanded(false);
+  };
+  useOnClickOutside(taskCreatorRef, clickOutsideHandler);
+
   return (
     <div
       className={`flex flex-col gap-5 overflow-hidden rounded-lg bg-gray-200 p-3 leading-10 ${
         expanded ? 'max-h-80' : 'max-h-12'
       } transition-[max-height] duration-500 ease-in-out`}
       onClick={() => setExpanded(true)}
-      onBlur={() => setExpanded(false)}
+      ref={taskCreatorRef}
     >
       <input
         type="text"
