@@ -35,7 +35,8 @@ export default function TagInput() {
     setIsKeyReleased(true);
   };
 
-  const deleteTag = (index: number) => {
+  const deleteTag = (index: number, e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); // For some reason if this isn't here it can call the button onClick twice
     setTags((prevState) => prevState.filter((tag, i) => i !== index));
   };
 
@@ -47,7 +48,7 @@ export default function TagInput() {
           key={i}
         >
           {tag}
-          <button className="flex, cursor-pointer border-none p-1" onClick={() => deleteTag(i)}>
+          <button className="flex, cursor-pointer border-none p-1" onClick={(e) => deleteTag(i, e)}>
             <FontAwesomeIcon icon={faTrash} />
           </button>
         </div>

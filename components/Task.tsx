@@ -70,7 +70,7 @@ export default function Task() {
         </span>
         <span></span>
       </div>
-      <div className="flex justify-between">
+      <div className="flex items-end justify-between">
         <label className="ml-1">
           Tags
           <TagInput />
